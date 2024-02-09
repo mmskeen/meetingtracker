@@ -1,4 +1,4 @@
-package com.michaelmskeen.meetingtracker;
+package com.michaelmskeen.meetingtracker.model;
 
 import java.time.LocalDateTime;
 
