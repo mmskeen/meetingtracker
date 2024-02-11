@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meeting Tracker</title>
+</head>
+<body>
+    <h1>Upcoming Meetings</h1>
+    <div>
+        <ul>
+            <li th:each="meeting : ${meetings}">
+                <span th:text="${meeting.name}">Meeting Name</span>:
+                <span th:text="${meeting.description}">Description</span>,
+                with <span th:text="${meeting.whoWith}">Who With</span> from
+                <span th:text="${meeting.startTime}">Start Time</span> to
+                <span th:text="${meeting.endTime}">End Time</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
