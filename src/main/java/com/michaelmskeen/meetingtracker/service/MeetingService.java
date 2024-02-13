@@ -17,5 +17,15 @@ public class MeetingService {
         return meetingRepository.findAll();
     }
 
+    public void save(Meeting meeting) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    }
+
+    public void deleteById(Long id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+    }
+
     // Additional methods for CRUD operations
 }
