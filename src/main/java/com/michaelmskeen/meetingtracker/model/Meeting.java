@@ -20,5 +20,5 @@ public class Meeting {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    // Getters and Setters
+    // Getters and Setters for Lombok
 }
