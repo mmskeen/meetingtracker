@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.michaelmskeen.meetingtracker.model.Meeting;
 import com.michaelmskeen.meetingtracker.repository.MeetingRepository;
 
+import jakarta.persistence.EntityNotFoundException;
+
 @Service
 public class MeetingService {
     @Autowired
@@ -17,15 +19,17 @@ public class MeetingService {
         return meetingRepository.findAll();
     }
 
-    public void save(Meeting meeting) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+    public Meeting findById(Long id) {
+        return meetingRepository.findById(id)
+                           .orElseThrow(() -> new EntityNotFoundException("Meeting not found with id: " + id));
+   }
+
+   public Meeting save(Meeting meeting) {
+        return meetingRepository.save(meeting);
     }
 
     public void deleteById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
+        meetingRepository.deleteById(id);
     }
 
-    // Additional methods for CRUD operations
 }

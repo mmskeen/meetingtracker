@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.michaelmskeen.meetingtracker.service.MeetingService;
+
+import jakarta.persistence.EntityNotFoundException;
+
 import com.michaelmskeen.meetingtracker.model.Meeting;
 
 @Controller
@@ -27,6 +30,27 @@ public class MeetingController {
     public String createMeeting(@ModelAttribute Meeting meeting) {
         meetingService.save(meeting);
         return "redirect:/"; 
+    }
+
+    @GetMapping("/meeting/{id}")
+    public String showMeeting(@PathVariable Long id, Model model) {
+        try {
+            Meeting meeting = meetingService.findById(id);
+            model.addAttribute("meeting", meeting);
+            return "meeting-details"; // Thymeleaf template name for meeting details
+        } catch (EntityNotFoundException e) {
+            return "meeting-not-found";
+        }
+    }
+
+    @PostMapping("/meeting/{id}")
+    public String updateMeeting(@PathVariable Long id, @ModelAttribute Meeting meeting) {
+        Meeting existingMeeting = meetingService.findById(id);
+        existingMeeting.setName(meeting.getName());
+        existingMeeting.setDescription(meeting.getDescription());
+        // Update other properties as needed
+        meetingService.save(existingMeeting);
+        return "redirect:/"; // Redirect to the homepage after updating the meeting
     }
 
     @DeleteMapping("/meeting/{id}/delete")
