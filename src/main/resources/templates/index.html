@@ -8,6 +8,7 @@
     <div>
         <ul>
             <li th:each="meeting : ${meetings}">
+                <span th:text="${meeting.id}">Meeting Id</span>:
                 <span th:text="${meeting.name}">Meeting Name</span>:
                 <span th:text="${meeting.description}">Description</span>,
                 with <span th:text="${meeting.whoWith}">Who With</span> from
