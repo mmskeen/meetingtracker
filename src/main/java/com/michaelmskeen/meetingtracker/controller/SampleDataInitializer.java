@@ -25,12 +25,14 @@ public class SampleDataInitializer {
         Meeting meeting1 = new Meeting();
         meeting1.setName("Sample Meeting 1");
         meeting1.setDescription("This is a sample meeting 1");
+        meeting1.setWhoWith("John Doe");
         // Set other properties as needed
         meetingRepository.save(meeting1);
 
         Meeting meeting2 = new Meeting();
         meeting2.setName("Sample Meeting 2");
         meeting2.setDescription("This is a sample meeting 2");
+        meeting2.setWhoWith("Jane Doe");
         // Set other properties as needed
         meetingRepository.save(meeting2);
 

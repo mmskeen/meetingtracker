@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Meeting Details</title>
+</head>
+<body>
+    <h1>Meeting Details</h1>
+
+    <table>
+        <tr>
+            <td>ID:</td>
+            <td th:text="${meeting.id}"></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${meeting.name}"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td th:text="${meeting.description}"></td>
+        </tr>
+        <tr>
+            <td>Who with:</td>
+            <td th:text="${meeting.whoWith}"></td>
+        </tr>
+    </table>
+
+    <a th:href="@{/}">Back to Meetings</a>
+</body>
+</html>
